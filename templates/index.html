@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Hamilton's (Ontario, Canada) House Prices</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="priv_dwellings_by_bedroom" placeholder="Dwellings per Bedroom" required="required" />
+		<input type="text" name="priv_dwellings_by_room" placeholder="Dwellings per Room" required="required" />
+        <input type="text" name="major_repairs" placeholder="Major Repairs" required="required" />
+		<input type="text" name="monthly_housing_costs" placeholder="Monthly Housing Costs" required="required" />
+		<input type="text" name="percent_mortgage" placeholder="Mortgage Percentage" required="required" />
+		<input type="text" name="income_after_tax" placeholder="After Tax Income" required="required" />
+		<input type="text" name="house_by_person_per_room" placeholder="People per Room" required="required" />
+		<input type="text" name="avg_house_size" placeholder="Average House Size" required="required" />
+		<input type="text" name="population" placeholder="Census Tract Population" required="required" />
+		<input type="text" name="land_area" placeholder="Land Area" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <img src="/static/images/Original.svg" style="width: 400px;position: absolute;bottom: 10px;left: 10px;" alt="Company Logo"/>
+
+</body>
+</html>
